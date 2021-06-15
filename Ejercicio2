@@ -1,0 +1,62 @@
+package tarea;
+
+import java.io.Serializable;
+import java.util.*;
+
+
+public class Cafeteria implements Serializable {
+    private Date hora_comida;
+    private String sintomas;
+    private int temperatura;
+    private int mesa;
+    private int lugar;
+    private int num_charola;
+    private int numero_persona;//numero de persona formada
+    private String menu;
+    private boolean cambio;//pago exacto o recivio cambio
+    private int tiempo_dentro;
+    private int personas_dentro;
+    
+    
+    
+    public Cafeteria () {
+        
+        sintomas = new String("");
+        temperatura = 35;
+        mesa = 1;
+        lugar = 1;
+        num_charola = 2398;
+        numero_persona = 2183034;
+        menu = new String("");
+        cambio = false;
+        tiempo_dentro = 50;
+        personas_dentro = 230;
+    }
+
+    public Cafeteria(int año,int mes, int dia,String sintomas,int temperatura,int mesa,int lugar,int num_charola, int numero_persona, 
+            String menu,boolean cambio, int tiempo_dentro, int personas_dentro) {
+        
+        GregorianCalendar calendario = new GregorianCalendar(año,mes-1,dia);
+        
+        hora_comida = calendario.getTime();
+        this.sintomas = sintomas;
+        this.temperatura = temperatura;
+        this.mesa = mesa;
+        this.lugar = lugar;
+        this.num_charola = num_charola;
+        this.numero_persona = numero_persona;
+        this.menu = menu;
+        this.cambio = cambio;
+        this.tiempo_dentro = tiempo_dentro;
+        this.personas_dentro = personas_dentro;
+    }
+     
+    
+	
+    public String toString  () {
+        return ("Hora de comida: " + hora_comida + " Sintomas: "+sintomas+"\t Temperatura: "+temperatura+"\t Mesa: "+mesa+"\nLugar: " + lugar + "\tNumero de Charola: " 
+                + num_charola+"\nNumero de Persona en Fila: "+numero_persona+"\tComio: "+menu+"\tPago exacto: "
+                +cambio+"\nTiempo dentro de Cafeteria: "+tiempo_dentro+"\n Numero de personas dentos:"+personas_dentro);
+    }
+    
+}
